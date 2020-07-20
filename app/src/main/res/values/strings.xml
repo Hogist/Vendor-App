@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Vendor</string>
+    <string name="status">Filt</string>
+    <string-array name="reports">
+        <item>Filters</item>
+        <item>Nofilters</item>
+
+    </string-array>
+</resources>
