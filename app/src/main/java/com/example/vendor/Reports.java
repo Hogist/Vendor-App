@@ -19,6 +19,7 @@ ImageView i1;
             public void onClick(View v) {
                 Intent i=new Intent(Reports.this,Useraccount.class);
                 startActivity(i);
+
             }
         });
     }

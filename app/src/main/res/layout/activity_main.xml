@@ -31,7 +31,7 @@
 
 
             <EditText
-                android:id="@+id/editTextTextPersonName2"
+                android:id="@+id/email"
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -39,14 +39,14 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginLeft="25dp"
                 android:inputType="textPersonName"
-                android:hint="Enter UserName"
+                android:hint="Enter EmailAddress"
                 android:textCursorDrawable="@drawable/curso"
                 android:textSize="18sp"
                 android:textColor="#000000"
                 android:paddingLeft="5dp"/>
 
             <EditText
-                android:id="@+id/editTextTextPassword2"
+                android:id="@+id/Password"
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -61,7 +61,7 @@
                 android:inputType="textPassword" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/forgot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Forgot your password?"
