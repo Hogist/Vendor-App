@@ -65,15 +65,17 @@ public class MainActivity extends AppCompatActivity {
 
                 }
 
-                fAuth.createUserWithEmailAndPassword(vemailaddress,VPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
+                fAuth.signInWithEmailAndPassword(vemailaddress,VPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+
+                            Toast.makeText(MainActivity.this, "User logined", Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(MainActivity.this, MainActivity2.class);
                             startActivity(i);
-                            Toast.makeText(MainActivity.this, "User logined", Toast.LENGTH_SHORT).show();
                             LoginVendor = fAuth.getCurrentUser().getUid();
-                            DocumentReference documentReference = fstore.collection("VendorUser").document(LoginVendor);
+                            DocumentReference documentReference = fstore.collection("Vendor").document(LoginVendor);
                             final Map<String, Object> Lvendor = new HashMap<>();
                             Lvendor.put("CreatedDate", FieldValue.serverTimestamp());
                             Lvendor.put("VEmailAddress", vemailaddress);

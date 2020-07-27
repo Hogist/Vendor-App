@@ -119,6 +119,7 @@
                 android:text="User Account " />
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardview5"
             android:layout_width="320dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
@@ -134,6 +135,25 @@
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:text="Cancel Order" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview6"
+            android:layout_width="320dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            app:cardElevation="20dp"
+            app:cardBackgroundColor="#FF0000"
+            android:layout_marginTop="25dp">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:text="Menu change request" />
         </androidx.cardview.widget.CardView>
 
 
