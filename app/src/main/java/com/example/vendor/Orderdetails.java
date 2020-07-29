@@ -29,7 +29,7 @@ import java.util.Map;
 public class Orderdetails extends AppCompatActivity {
 ImageView i1;
 TextView Orderid,Quantity,Totalorderprise,enterprisename,BreakfastItemList,lunchitemlist,dinneritemlist,snacksitemlist,createddatetime,deliveryaddress,orderstatus;
-Button submit;
+Button submit,view;
 String OrderDetails;
     @ServerTimestamp
     Date Time;
@@ -43,6 +43,7 @@ FirebaseFirestore firestore;
         i1=findViewById(R.id.imageback5);
         Orderid=findViewById(R.id.textView4);
        Quantity=findViewById(R.id.textView5);
+       view=findViewById(R.id.order_now_vieworderlist);
         Totalorderprise=findViewById(R.id.textView6);
         enterprisename=findViewById(R.id.textView7);
         BreakfastItemList=findViewById(R.id.textView8);
@@ -71,5 +72,15 @@ FirebaseFirestore firestore;
                 startActivity(i);
             }
         });
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(Orderdetails.this,OrderList.class);
+                startActivity(i);
+            }
+        });
+
+
     }
 }
