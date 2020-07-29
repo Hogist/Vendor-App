@@ -94,7 +94,9 @@ public class OrderList extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        firestore.collection("OrderDetails").addSnapshotListener(this, new EventListener<QuerySnapshot>() {
+        firestore.collection("OrderDetails")
+                .whereEqualTo("VEmail",email)
+                .addSnapshotListener(this, new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                 if(error!=null){
