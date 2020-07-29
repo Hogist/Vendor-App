@@ -56,7 +56,7 @@ public class OrderList extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         for(DocumentSnapshot q:task.getResult()){
                             OrderListDataModel M=new OrderListDataModel(String.valueOf(q.getDouble("OrderID")),
-                                    q.getString("VFullName"),
+                                    q.getString("ECompanyName"),
                                     q.getString("Quantity"),
                                     q.getString("OrderStatus"));
                             data.add(M);
@@ -82,7 +82,7 @@ public class OrderList extends AppCompatActivity {
 
                 for(QueryDocumentSnapshot q:value) {
                     OrderListDataModel M=new OrderListDataModel(String.valueOf(q.getDouble("OrderID")),
-                            q.getString("VFullName"),
+                            q.getString("ECompanyName"),
                             q.getString("Quantity"),
                             q.getString("OrderStatus"));
                     data.add(M);
