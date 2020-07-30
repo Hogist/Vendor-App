@@ -35,10 +35,10 @@ public class OrderlistAdapter extends RecyclerView.Adapter<OrderlistAdapter.MyVi
         TextView Quantity= holder.Quantity;
         TextView OrderStatus= holder.OrderStatus;
 
-        OrderID.setText(dataModels.get(position).getOrderID());
-        VendorName.setText(dataModels.get(position).getVendorName());
-        Quantity.setText(dataModels.get(position).getQuantity());
-        OrderStatus.setText(dataModels.get(position).getOrderStatus());
+        OrderID.setText("Order ID: "+dataModels.get(position).getOrderID());
+        VendorName.setText("Enterprise: "+dataModels.get(position).getVendorName());
+        Quantity.setText("Quantity: "+dataModels.get(position).getQuantity());
+        OrderStatus.setText("Status: "+dataModels.get(position).getOrderStatus());
 
     }
 
@@ -55,7 +55,7 @@ public class OrderlistAdapter extends RecyclerView.Adapter<OrderlistAdapter.MyVi
             super(itemView);
             this.OrderID = (TextView)itemView.findViewById(R.id.order_list_orderid);
             this.VendorName = (TextView)itemView.findViewById(R.id.order_list_vendorname);
-            this.Quantity = (TextView)itemView.findViewById(R.id.order_list_orderid);
+            this.Quantity = (TextView)itemView.findViewById(R.id.order_list_quantity);
             this.OrderStatus =(TextView)itemView.findViewById(R.id.order_list_orderstatus);
 
         }
