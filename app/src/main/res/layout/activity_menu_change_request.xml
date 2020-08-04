@@ -86,23 +86,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-        <TextView
+        <EditText
             android:id="@+id/Reason"
-            android:layout_width="wrap_content"
+            android:layout_width="268dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
-            android:text="Reason"
+            android:hint ="Reason"
             android:textColor="#000000"
             android:textSize="25sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/newmenu"
-            android:layout_width="wrap_content"
+            android:layout_width="265dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
-            android:text="New Menu"
+            android:hint="New Menu"
             android:textColor="#000000"
             android:textSize="25sp" />
     </LinearLayout>

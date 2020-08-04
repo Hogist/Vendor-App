@@ -33,11 +33,11 @@ public class MenuChangeRequestAdapter extends RecyclerView.Adapter<MenuChangeReq
         TextView NewMenu = holder.Newmenu;
         TextView Status = holder.Status;
 
-        RequestID.setText(dataModels.get(position).getRequestId());
-        VendorName.setText(dataModels.get(position).getVendorName());
-        Reason.setText(dataModels.get(position).getReason());
-        NewMenu.setText(dataModels.get(position).getNewMenu());
-        Status.setText(dataModels.get(position).getStatus());
+        RequestID.setText("Request ID:  "+dataModels.get(position).getRequestId());
+        VendorName.setText("EUserID: "+dataModels.get(position).getVendorName());
+        Reason.setText("Reason: "+dataModels.get(position).getReason());
+        NewMenu.setText("New Menu:"+dataModels.get(position).getNewMenu());
+        Status.setText("Status: "+dataModels.get(position).getStatus());
 
     }
 
