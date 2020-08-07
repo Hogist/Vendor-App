@@ -25,6 +25,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             app:cardBackgroundColor="#FF0000">
+
             <ImageView
                 android:id="@+id/imageback6"
                 android:layout_width="wrap_content"
@@ -33,7 +34,8 @@
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="17dp"
                 android:background="#FF0000"
-                android:src="@drawable/abc_vector_test"/>
+                android:src="@drawable/abc_vector_test" />
+
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"

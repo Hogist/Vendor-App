@@ -21,11 +21,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Menudetails" />
-        <activity android:name=".Orderdetails" />
         <activity android:name=".Covidhygenic" />
         <activity android:name=".MainActivity2" />
         <activity android:name=".CancelOrderDetails" />
-        <activity android:name=".OrderList" />
         <activity android:name=".MainActivity">
 
         </activity>

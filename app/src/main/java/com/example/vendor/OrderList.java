@@ -5,13 +5,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -21,16 +25,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 public class OrderList extends AppCompatActivity {
-
-
     private static RecyclerView.Adapter adapter;
     protected RecyclerView.LayoutManager layoutManager;
     private static RecyclerView recyclerView;
@@ -57,8 +52,8 @@ public class OrderList extends AppCompatActivity {
 
         myOnclickListener = new MyOnClickListener(this);
         recyclerView = (RecyclerView)findViewById(R.id.orderlist_recyclerview);
-
-        layoutManager = new LinearLayoutManager(this);
+         recyclerView.setHasFixedSize(true);
+         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
@@ -77,15 +72,26 @@ public class OrderList extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         for(DocumentSnapshot q:task.getResult()){
                             OrderListDataModel M=new OrderListDataModel(String.valueOf(q.getDouble("OrderID")),
-                                    q.getString("ECompanyName"),
+                                    q.getString("EnterpriseName"),
                                     q.getString("Quantity"),
+                                    q.getString("TotalOrderPrice"),
+                                    q.getString("BreakfastItemList"),
+                                    q.getString("LunchItemList"),
+                                    q.getString("DinnerItemList"),
+                                    q.getString("SnacksItemList"),
+                                    q.getString("CreatedDate-Time"),
+                                    q.getString("DeliveryAdsress"),
                                     q.getString("OrderStatus"));
+
+
+
+
                             data.add(M);
                         }
                     }
                 });
 
-        adapter = new OrderlistAdapter(data);
+        adapter = new OrderlistAdapter(data, OrderList.this);
         recyclerView.setAdapter(adapter);
 
     }
@@ -97,24 +103,33 @@ public class OrderList extends AppCompatActivity {
         firestore.collection("OrderDetails")
                 .whereEqualTo("VEmail",email)
                 .addSnapshotListener(this, new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                if(error!=null){
-                    return;
-                }
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                        if(error!=null){
+                            return;
+                        }
 
-                for(QueryDocumentSnapshot q:value) {
-                    OrderListDataModel M=new OrderListDataModel(String.valueOf(q.getDouble("OrderID")),
-                            q.getString("ECompanyName"),
-                            q.getString("Quantity"),
-                            q.getString("OrderStatus"));
-                    data.add(M);
+                        for(QueryDocumentSnapshot q:value) {
+                            OrderListDataModel M=new OrderListDataModel(String.valueOf(q.getDouble("OrderID")),
+                                    q.getString("EnterpriseName"),
+                                    q.getString("Quantity"),
+                                    q.getString("TotalOrderPrice"),
+                                    q.getString("BreakfastItemList"),
+                                    q.getString("LunchItemList"),
+                                    q.getString("DinnerItemList"),
+                                    q.getString("SnacksItemList"),
+                                    q.getString("CreatedDate-Time"),
+                                    q.getString("DeliveryAdsress"),
+                                    q.getString("OrderStatus"));
 
-                    adapter = new OrderlistAdapter(data);
-                    recyclerView.setAdapter(adapter);
-                }
-            }
-        });
+                            data.add(M);
+
+
+                            adapter = new OrderlistAdapter(data, OrderList.this);
+                            recyclerView.setAdapter(adapter);
+                        }
+                    }
+                });
     }
 
     static class MyOnClickListener implements View.OnClickListener{
@@ -127,6 +142,8 @@ public class OrderList extends AppCompatActivity {
         public void onClick(View view) {
             Toast.makeText(context, "Item Clicked!!", Toast.LENGTH_SHORT).show();
         }
+
+
     }
 
 }

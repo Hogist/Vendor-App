@@ -71,7 +71,7 @@ CardView c1,c2,c3,c4,c5,c6;
         c2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(MainActivity2.this,Orderdetails.class);
+                Intent i=new Intent(MainActivity2.this,OrderList.class);
                 startActivity(i);
             }
         });

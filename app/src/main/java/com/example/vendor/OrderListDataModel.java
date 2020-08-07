@@ -2,16 +2,31 @@ package com.example.vendor;
 
 public class OrderListDataModel {
 
-    String OrderID;
-    String VendorName;
-    String Quantity;
-    String OrderStatus;
+    private String OrderID;
+    private String EnterpriseName;
+    private String Quantity;
+    private String OrderStatus;
+    private String TotalOrderPrise;
+    private String BreakfastItemList;
+    private String LunchItemList;
+    private String DinnerItemList;
+    private  String SnacksItemList;
+    private String CreatedDateTime;
+    private String DeliveryAddress;
 
-    public OrderListDataModel(String orderID, String vendorName, String quantity, String orderStatus) {
+    public OrderListDataModel(String orderID, String enterpriseName, String quantity, String orderStatus,String totalOrderPrise,String breakfastItemList,String lunchItemList,
+                              String dinnerItemList,String snacksItemList,String createdDateTime,String deliveryAddress) {
         OrderID = orderID;
-        VendorName = vendorName;
+        EnterpriseName =enterpriseName ;
         Quantity = quantity;
         OrderStatus = orderStatus;
+        TotalOrderPrise = totalOrderPrise;
+        BreakfastItemList = breakfastItemList;
+        LunchItemList = lunchItemList;
+        DinnerItemList = dinnerItemList;
+        SnacksItemList = snacksItemList;
+        CreatedDateTime = createdDateTime;
+        DeliveryAddress = deliveryAddress;
     }
 
     public String getOrderID() {
@@ -22,13 +37,10 @@ public class OrderListDataModel {
         OrderID = orderID;
     }
 
-    public String getVendorName() {
-        return VendorName;
+    public String getEnterpriseName() {
+        return EnterpriseName;
     }
 
-    public void setVendorName(String vendorName) {
-        VendorName = vendorName;
-    }
 
     public String getQuantity() {
         return Quantity;
@@ -45,4 +57,30 @@ public class OrderListDataModel {
     public void setOrderStatus(String orderStatus) {
         OrderStatus = orderStatus;
     }
+
+    public String getTotalOrderPrise(){return TotalOrderPrise;}
+
+    public void setTotalOrderPrise(String totalOrderPrise){TotalOrderPrise = totalOrderPrise;}
+
+    public String getBreakfastItemList(){return BreakfastItemList;}
+
+    public void setBreakfastItemList(String breakfastItemList){BreakfastItemList = breakfastItemList;}
+
+    public String getLunchItemList(){return LunchItemList;}
+
+    public void setLunchItemList(String lunchItemList){LunchItemList = lunchItemList;}
+
+    public String getDinnerItemList(){return DinnerItemList;}
+    public void setDinnerItemList(String dinnerItemList){DinnerItemList = dinnerItemList;}
+
+    public String getSnacksItemList(){return SnacksItemList;}
+    public void setSnacksItemList(String snacksItemList){SnacksItemList = snacksItemList;}
+
+    public String getCreatedDateTime(){return CreatedDateTime;}
+    public void setCreatedDateTime(String createdDateTime){CreatedDateTime = createdDateTime;}
+
+    public String getDeliveryAddress(){return DeliveryAddress;}
+    public void setDeliveryAddress(String dinnerItemList){DinnerItemList = dinnerItemList;}
+
+
 }

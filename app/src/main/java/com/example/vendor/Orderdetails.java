@@ -1,8 +1,5 @@
 package com.example.vendor;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,39 +8,61 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FieldValue;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.ServerTimestamp;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Orderdetails extends AppCompatActivity {
-ImageView i1;
-TextView Orderid,Quantity,Totalorderprise,enterprisename,BreakfastItemList,lunchitemlist,dinneritemlist,snacksitemlist,createddatetime,deliveryaddress,orderstatus;
-Button submit,view;
-String OrderDetails;
+    ImageView i1;
+    TextView Orderid,Quantity,Totalorderprise,enterprisename,BreakfastItemList,lunchitemlist,dinneritemlist,snacksitemlist,createddatetime,deliveryaddress,orderstatus;
+    Button submit,view;
+    String OrderDetails;
     @ServerTimestamp
     Date Time;
+    private String orderid;
+    private String quantity;
+    private String Enterprisename;
+    private String Orderstatus;
+    private String breakfastitemlist;
+    private String LunchItemList;
+    private String SnacksItemList;
+    private String CreateddateTime;
+    private String TotalOrderPrice;
+    private String DinnerItemList;
+    private String DeliveryAddress;
 
-private List<String> Orderdetails = new ArrayList<>();
-FirebaseFirestore firestore;
-    @Override
+    private List<String> Orderdetails = new ArrayList<>();
+    FirebaseFirestore firestore;
+
+
+      @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        orderid=getIntent().getStringExtra("orderid");
+        quantity=getIntent().getStringExtra("quantity");
+        Enterprisename=getIntent().getStringExtra("enterprisename");
+        Orderstatus=getIntent().getStringExtra("orderstatus");
+        breakfastitemlist=getIntent().getStringExtra("BreakfastItemList");
+        LunchItemList=getIntent().getStringExtra("LunchItemList");
+        SnacksItemList=getIntent().getStringExtra("SnacksItemList");
+        CreateddateTime=getIntent().getStringExtra("CreateddateTime");
+        TotalOrderPrice=getIntent().getStringExtra("TotalOrderPrice");
+        DinnerItemList=getIntent().getStringExtra("DinnerItemList");
+        DeliveryAddress=getIntent().getStringExtra("DeliveryAddress");
+
+
+
+
         setContentView(R.layout.activity_orderdetails);
         i1=findViewById(R.id.imageback5);
         Orderid=findViewById(R.id.textView4);
-       Quantity=findViewById(R.id.textView5);
-       view=findViewById(R.id.order_now_vieworderlist);
+        Quantity=findViewById(R.id.textView5);
+        view=findViewById(R.id.order_now_vieworderlist);
         Totalorderprise=findViewById(R.id.textView6);
         enterprisename=findViewById(R.id.textView7);
         BreakfastItemList=findViewById(R.id.textView8);
@@ -58,17 +77,20 @@ FirebaseFirestore firestore;
 
 
 
+
+
+
         submit=findViewById(R.id.button);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Orderdetails.this, "Sucessfull", Toast.LENGTH_SHORT).show();
+                Toast.makeText(com.example.vendor.Orderdetails.this, "Sucessfull", Toast.LENGTH_SHORT).show();
             }
         });
         i1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Orderdetails.this,MainActivity2.class);
+                Intent i=new Intent(com.example.vendor.Orderdetails.this, MainActivity2.class);
                 startActivity(i);
             }
         });
@@ -76,7 +98,7 @@ FirebaseFirestore firestore;
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Orderdetails.this,OrderList.class);
+                Intent i=new Intent(com.example.vendor.Orderdetails.this, OrderList.class);
                 startActivity(i);
             }
         });

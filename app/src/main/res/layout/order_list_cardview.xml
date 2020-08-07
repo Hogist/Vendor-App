@@ -33,16 +33,16 @@
                 android:id="@+id/order_list_orderid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Order Id" />
+                android:text="Order Id  :" />
 
             <TextView
                 android:layout_marginTop="2dp"
                 android:textColor="#000000"
                 android:textSize="20sp"
-                android:id="@+id/order_list_vendorname"
+                android:id="@+id/order_list_Enterprisename"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Vendor Name" />
+                android:text="Enterprise Name  :" />
 
             <TextView
                 android:layout_marginTop="2dp"
@@ -51,16 +51,16 @@
                 android:id="@+id/order_list_quantity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Quantity" />
+                android:text="Quantity  :" />
 
             <TextView
                 android:layout_marginTop="2dp"
                 android:textColor="#000000"
                 android:textSize="20sp"
-                android:id="@+id/order_list_orderstatus"
+                android:id="@+id/order_list_orderprise"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Order Status" />
+                android:text="Total OrderPrice :" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
