@@ -21,20 +21,9 @@ public class Orderdetails extends AppCompatActivity {
     ImageView i1;
     TextView Orderid,Quantity,Totalorderprise,enterprisename,BreakfastItemList,lunchitemlist,dinneritemlist,snacksitemlist,createddatetime,deliveryaddress,orderstatus;
     Button submit,view;
-    String OrderDetails;
     @ServerTimestamp
     Date Time;
-    private String orderid;
-    private String quantity;
-    private String Enterprisename;
-    private String Orderstatus;
-    private String breakfastitemlist;
-    private String LunchItemList;
-    private String SnacksItemList;
-    private String CreateddateTime;
-    private String TotalOrderPrice;
-    private String DinnerItemList;
-    private String DeliveryAddress;
+
 
     private List<String> Orderdetails = new ArrayList<>();
     FirebaseFirestore firestore;
@@ -43,17 +32,18 @@ public class Orderdetails extends AppCompatActivity {
       @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        orderid=getIntent().getStringExtra("orderid");
-        quantity=getIntent().getStringExtra("quantity");
-        Enterprisename=getIntent().getStringExtra("enterprisename");
-        Orderstatus=getIntent().getStringExtra("orderstatus");
-        breakfastitemlist=getIntent().getStringExtra("BreakfastItemList");
-        LunchItemList=getIntent().getStringExtra("LunchItemList");
-        SnacksItemList=getIntent().getStringExtra("SnacksItemList");
-        CreateddateTime=getIntent().getStringExtra("CreateddateTime");
-        TotalOrderPrice=getIntent().getStringExtra("TotalOrderPrice");
-        DinnerItemList=getIntent().getStringExtra("DinnerItemList");
-        DeliveryAddress=getIntent().getStringExtra("DeliveryAddress");
+
+        String orderid=getIntent().getStringExtra("orderid");
+        String quantity=getIntent().getStringExtra("quantity");
+        String Enterprisename=getIntent().getStringExtra("enterprisename");
+        String Orderstatus=getIntent().getStringExtra("orderstatus");
+        String  breakfastitemlist=getIntent().getStringExtra("BreakfastItemList");
+        String LunchItemList=getIntent().getStringExtra("LunchItemList");
+        String SnacksItemList=getIntent().getStringExtra("SnacksItemList");
+        String CreateddateTime=getIntent().getStringExtra("CreateddateTime");
+        String TotalOrderPrice=getIntent().getStringExtra("TotalOrderPrice");
+        String DinnerItemList=getIntent().getStringExtra("DinnerItemList");
+        String DeliveryAddress=getIntent().getStringExtra("DeliveryAddress");
 
 
 
@@ -84,24 +74,24 @@ public class Orderdetails extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(com.example.vendor.Orderdetails.this, "Sucessfull", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Orderdetails.this, "Sucessfull", Toast.LENGTH_SHORT).show();
             }
         });
         i1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(com.example.vendor.Orderdetails.this, MainActivity2.class);
+                Intent i=new Intent(Orderdetails.this, MainActivity2.class);
                 startActivity(i);
             }
         });
 
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(com.example.vendor.Orderdetails.this, OrderList.class);
-                startActivity(i);
-            }
-        });
+          view.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                  Intent i=new Intent(Orderdetails.this, OrderList.class);
+                  startActivity(i);
+              }
+          });
 
 
     }

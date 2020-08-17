@@ -13,7 +13,8 @@
         <activity android:name=".Useraccount" />
         <activity android:name=".MenuRequestDetails" />
         <activity android:name=".MenuChangeRequest" />
-        <activity android:name=".Splashscreen">
+        <activity android:name=".Splashscreen"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

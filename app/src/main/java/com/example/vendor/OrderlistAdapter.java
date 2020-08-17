@@ -11,11 +11,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class OrderlistAdapter extends RecyclerView.Adapter<OrderlistAdapter.MyViewHolder> {
 
     OrderListDataModel[] orderListDataModels;
     Context context;
+
+    private List<OrderList> mOrders;
+
+
 
     private ArrayList<OrderListDataModel> dataModels;
 
@@ -38,14 +43,14 @@ public class OrderlistAdapter extends RecyclerView.Adapter<OrderlistAdapter.MyVi
 
     @Override
     public void onBindViewHolder(@NonNull OrderlistAdapter.MyViewHolder holder, int position) {
-        final OrderListDataModel obj=dataModels.get(position);
+        final OrderListDataModel data=dataModels.get(position);
         TextView OrderID = holder.OrderID;
         TextView EnterpriseName = holder.EnterpriseName;
         TextView Quantity = holder.Quantity;
         TextView TotalOrderPrice=holder.TotalOrderPrice;
 
         OrderID.setText("Order ID: "+dataModels.get(position).getOrderID());
-        EnterpriseName.setText("Enterprise: "+dataModels.get(position).getEnterpriseName());
+        EnterpriseName.setText("EnterpriseName: "+dataModels.get(position).getEnterpriseName());
         Quantity.setText("Quantity: "+dataModels.get(position).getQuantity());
         TotalOrderPrice.setText("TotalOrderPrice: "+dataModels.get(position).getTotalOrderPrise());
 
@@ -53,20 +58,14 @@ public class OrderlistAdapter extends RecyclerView.Adapter<OrderlistAdapter.MyVi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(context, Orderdetails.class);
-                intent.putExtra("orderid",obj.getOrderID());
-                intent.putExtra("enterprisename",obj.getEnterpriseName());
-                intent.putExtra("quantity",obj.getQuantity());
-                intent.putExtra("orerstatus",obj.getOrderStatus());
-                intent.putExtra("breakfastItemList",obj.getBreakfastItemList());
-                intent.putExtra("lunchItemList",obj.getLunchItemList());
-                intent.putExtra("dinnerItemList",obj.getDinnerItemList());
-                intent.putExtra("snacksItemList",obj.getSnacksItemList());
-                intent.putExtra("deliveryAddress",obj.getDeliveryAddress());
-                intent.putExtra("totalOrderPrice",obj.getTotalOrderPrise());
-                intent.putExtra("createdate-time",obj.getCreatedDateTime());
+                Intent intent=new Intent(v.getContext(), Orderdetails.class);
+                intent.putExtra("orderid",data.getOrderID());
+                intent.putExtra("enterprisename",data.getEnterpriseName());
+                intent.putExtra("quantity",data.getQuantity());
+                intent.putExtra("TotalOrderprice",data.getTotalOrderPrise());
 
-                context.startActivity(intent);
+
+                v.getContext().startActivity(intent);
             }
         });
     }
