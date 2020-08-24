@@ -32,7 +32,7 @@ public class Orderdetails extends AppCompatActivity {
       @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_orderdetails);
         String orderid=getIntent().getStringExtra("orderid");
         String quantity=getIntent().getStringExtra("quantity");
         String Enterprisename=getIntent().getStringExtra("enterprisename");
@@ -40,19 +40,14 @@ public class Orderdetails extends AppCompatActivity {
         String  breakfastitemlist=getIntent().getStringExtra("BreakfastItemList");
         String LunchItemList=getIntent().getStringExtra("LunchItemList");
         String SnacksItemList=getIntent().getStringExtra("SnacksItemList");
-        String CreateddateTime=getIntent().getStringExtra("CreateddateTime");
+        String CreatedDateTime=getIntent().getStringExtra("CreatedDateTime");
         String TotalOrderPrice=getIntent().getStringExtra("TotalOrderPrice");
         String DinnerItemList=getIntent().getStringExtra("DinnerItemList");
         String DeliveryAddress=getIntent().getStringExtra("DeliveryAddress");
-
-
-
-
-        setContentView(R.layout.activity_orderdetails);
         i1=findViewById(R.id.imageback5);
+
         Orderid=findViewById(R.id.textView4);
         Quantity=findViewById(R.id.textView5);
-        view=findViewById(R.id.order_now_vieworderlist);
         Totalorderprise=findViewById(R.id.textView6);
         enterprisename=findViewById(R.id.textView7);
         BreakfastItemList=findViewById(R.id.textView8);
@@ -63,11 +58,21 @@ public class Orderdetails extends AppCompatActivity {
         deliveryaddress=findViewById(R.id.textView13);
         orderstatus=findViewById(R.id.textView14);
 
+          view=findViewById(R.id.order_now_vieworderlist);
+
         firestore = FirebaseFirestore.getInstance();
 
-
-
-
+        Orderid.setText(orderid);
+        Quantity.setText(quantity);
+        Totalorderprise.setText(TotalOrderPrice);
+        enterprisename.setText(Enterprisename);
+        BreakfastItemList.setText(breakfastitemlist);
+        lunchitemlist.setText(LunchItemList);
+        dinneritemlist.setText(DinnerItemList);
+        snacksitemlist.setText(SnacksItemList);
+        createddatetime.setText(CreatedDateTime);
+        deliveryaddress.setText(DeliveryAddress);
+        orderstatus.setText(Orderstatus);
 
 
         submit=findViewById(R.id.button);

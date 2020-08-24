@@ -33,6 +33,7 @@ public class OrderlistAdapter extends RecyclerView.Adapter<OrderlistAdapter.MyVi
     @Override
     public OrderlistAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.order_list_cardview, parent, false);
+        view.setOnClickListener(OrderList.myOnclickListener);
         MyViewHolder myViewHolder = new MyViewHolder(view);
         return myViewHolder;
 
@@ -43,7 +44,6 @@ public class OrderlistAdapter extends RecyclerView.Adapter<OrderlistAdapter.MyVi
 
     @Override
     public void onBindViewHolder(@NonNull OrderlistAdapter.MyViewHolder holder, int position) {
-        final OrderListDataModel data=dataModels.get(position);
         TextView OrderID = holder.OrderID;
         TextView EnterpriseName = holder.EnterpriseName;
         TextView Quantity = holder.Quantity;
@@ -54,20 +54,6 @@ public class OrderlistAdapter extends RecyclerView.Adapter<OrderlistAdapter.MyVi
         Quantity.setText("Quantity: "+dataModels.get(position).getQuantity());
         TotalOrderPrice.setText("TotalOrderPrice: "+dataModels.get(position).getTotalOrderPrise());
 
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(v.getContext(), Orderdetails.class);
-                intent.putExtra("orderid",data.getOrderID());
-                intent.putExtra("enterprisename",data.getEnterpriseName());
-                intent.putExtra("quantity",data.getQuantity());
-                intent.putExtra("TotalOrderprice",data.getTotalOrderPrise());
-
-
-                v.getContext().startActivity(intent);
-            }
-        });
     }
 
     @Override

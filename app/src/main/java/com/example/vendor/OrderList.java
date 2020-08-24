@@ -1,6 +1,7 @@
 package com.example.vendor;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -132,7 +133,7 @@ public class OrderList extends AppCompatActivity {
                 });
     }
 
-    static class MyOnClickListener implements View.OnClickListener{
+    class MyOnClickListener implements View.OnClickListener{
         private final Context context;
 
         public MyOnClickListener(Context context) {
@@ -140,6 +141,21 @@ public class OrderList extends AppCompatActivity {
         }
         @Override
         public void onClick(View view) {
+            int itemPosition = recyclerView.getChildLayoutPosition(view);
+            OrderListDataModel item = data.get(itemPosition);
+            Intent i = new Intent(OrderList.this,Orderdetails.class);
+            i.putExtra("orderid",item.getOrderID());
+            i.putExtra("enterprisename",item.getEnterpriseName());
+            i.putExtra("quantity",item.getQuantity());
+            i.putExtra("orderstatus",item.getOrderStatus());
+            i.putExtra("BreakfastItemList",item.getBreakfastItemList());
+            i.putExtra("LunchItemList",item.getLunchItemList());
+            i.putExtra("SnacksItemList",item.getSnacksItemList());
+            i.putExtra("DinnerItemList",item.getDinnerItemList());
+            i.putExtra("CreatedDateTime",item.getCreatedDateTime());
+            i.putExtra("DeliveryAddress",item.getDeliveryAddress());
+            i.putExtra("TotalOrderPrice",item.getTotalOrderPrise());
+            startActivity(i);
             Toast.makeText(context, "Item Clicked!!", Toast.LENGTH_SHORT).show();
         }
 
