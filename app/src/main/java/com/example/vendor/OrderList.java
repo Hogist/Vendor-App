@@ -72,19 +72,10 @@ public class OrderList extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         for(DocumentSnapshot q:task.getResult()){
-                            OrderListDataModel M=new OrderListDataModel(String.valueOf(q.getDouble("OrderID")),
+                            OrderListDataModel M=new OrderListDataModel(String.valueOf(q.get("OrderID")),
                                     q.getString("EnterpriseName"),
                                     q.getString("Quantity"),
-                                    q.getString("TotalOrderPrice"),
-                                    q.getString("BreakfastItemList"),
-                                    q.getString("LunchItemList"),
-                                    q.getString("DinnerItemList"),
-                                    q.getString("SnacksItemList"),
-                                    q.getString("CreatedDate-Time"),
-                                    q.getString("DeliveryAdsress"),
-                                    q.getString("OrderStatus"));
-
-
+                                    q.getString("TotalOrderPrice"));
 
 
                             data.add(M);
@@ -111,17 +102,11 @@ public class OrderList extends AppCompatActivity {
                         }
 
                         for(QueryDocumentSnapshot q:value) {
-                            OrderListDataModel M=new OrderListDataModel(String.valueOf(q.getDouble("OrderID")),
+                            OrderListDataModel M=new OrderListDataModel(String.valueOf(q.get("OrderID")),
                                     q.getString("EnterpriseName"),
                                     q.getString("Quantity"),
-                                    q.getString("TotalOrderPrice"),
-                                    q.getString("BreakfastItemList"),
-                                    q.getString("LunchItemList"),
-                                    q.getString("DinnerItemList"),
-                                    q.getString("SnacksItemList"),
-                                    q.getString("CreatedDate-Time"),
-                                    q.getString("DeliveryAdsress"),
-                                    q.getString("OrderStatus"));
+                                    q.getString("TotalOrd erPrice"));
+
 
                             data.add(M);
 

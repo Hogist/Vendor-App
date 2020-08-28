@@ -14,24 +14,15 @@ public class OrderListDataModel {
     private String CreatedDateTime;
     private String DeliveryAddress;
 
-    public OrderListDataModel(String orderID, String enterpriseName, String quantity, String orderStatus,String totalOrderPrise,String breakfastItemList,String lunchItemList,
-                              String dinnerItemList,String snacksItemList,String createdDateTime,String deliveryAddress) {
+    public OrderListDataModel(String orderID, String enterpriseName, String quantity, String totalOrderPrice) {
         OrderID = orderID;
-        EnterpriseName =enterpriseName ;
-        Quantity = quantity;
-        OrderStatus = orderStatus;
-        TotalOrderPrise = totalOrderPrise;
-        BreakfastItemList = breakfastItemList;
-        LunchItemList = lunchItemList;
-        DinnerItemList = dinnerItemList;
-        SnacksItemList = snacksItemList;
-        CreatedDateTime = createdDateTime;
-        DeliveryAddress = deliveryAddress;
+        EnterpriseName = enterpriseName;
+        Quantity= quantity;
+        TotalOrderPrise= totalOrderPrice;
     }
 
-    public String getOrderID() {
-        return OrderID;
-    }
+
+    public String getOrderID() { return OrderID; }
 
     public void setOrderID(String orderID) {
         OrderID = orderID;
@@ -59,7 +50,6 @@ public class OrderListDataModel {
     }
 
     public String getTotalOrderPrise(){return TotalOrderPrise;}
-
     public void setTotalOrderPrise(String totalOrderPrise){TotalOrderPrise = totalOrderPrise;}
 
     public String getBreakfastItemList(){return BreakfastItemList;}

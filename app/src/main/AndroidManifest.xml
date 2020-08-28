@@ -9,10 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Reports"></activity>
-        <activity android:name=".Useraccount" />
-        <activity android:name=".MenuRequestDetails" />
-        <activity android:name=".MenuChangeRequest" />
+
         <activity android:name=".Splashscreen"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
@@ -25,9 +22,14 @@
         <activity android:name=".Covidhygenic" />
         <activity android:name=".MainActivity2" />
         <activity android:name=".CancelOrderDetails" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".OrderList"/>
+        <activity android:name=".Orderdetails"/>
+        <activity android:name=".Reports"/>
+        <activity android:name=".Useraccount" />
+        <activity android:name=".MenuRequestDetails" />
+        <activity android:name=".MenuChangeRequest" />
 
-        </activity>
     </application>
 
 </manifest>

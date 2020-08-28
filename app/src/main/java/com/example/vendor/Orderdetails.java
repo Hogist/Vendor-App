@@ -44,8 +44,8 @@ public class Orderdetails extends AppCompatActivity {
         String TotalOrderPrice=getIntent().getStringExtra("TotalOrderPrice");
         String DinnerItemList=getIntent().getStringExtra("DinnerItemList");
         String DeliveryAddress=getIntent().getStringExtra("DeliveryAddress");
-        i1=findViewById(R.id.imageback5);
 
+        i1=findViewById(R.id.imageback5);
         Orderid=findViewById(R.id.textView4);
         Quantity=findViewById(R.id.textView5);
         Totalorderprise=findViewById(R.id.textView6);
@@ -57,8 +57,7 @@ public class Orderdetails extends AppCompatActivity {
         createddatetime=findViewById(R.id.textView12);
         deliveryaddress=findViewById(R.id.textView13);
         orderstatus=findViewById(R.id.textView14);
-
-          view=findViewById(R.id.order_now_vieworderlist);
+        view=findViewById(R.id.order_now_vieworderlist);
 
         firestore = FirebaseFirestore.getInstance();
 

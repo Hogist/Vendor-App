@@ -71,7 +71,6 @@ public class MenuRequestDetails extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
     }
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -82,7 +81,6 @@ public class MenuRequestDetails extends AppCompatActivity {
                 if(error!=null){
                     return;
                 }
-
                 for(QueryDocumentSnapshot q:value) {
                     MenuChangeRequestDataModel M=new MenuChangeRequestDataModel(String.valueOf(q.getDouble("MenuChangeRequestID")),
                             String.valueOf(q.getDouble("EUserID")),
